@@ -2,8 +2,6 @@ package vista;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 /**
  * Created by victor on 10/18/15.
@@ -28,7 +26,7 @@ public class Aplicacion extends JFrame {
 //        });
 
         setTitle("Gravedad");
-        setSize(350, 250);
+        setSize(700, 500);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
