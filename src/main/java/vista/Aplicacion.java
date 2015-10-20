@@ -1,6 +1,7 @@
 package vista;
 
 import modelo.Objeto;
+import modelo.Vector;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +23,7 @@ public class Aplicacion extends JFrame {
     private void initUI() {
 
         timer = new Timer(DELAY, null);
-        timer.addActionListener(new Objeto());
+        timer.addActionListener(new Objeto(new Vector(5, 5), new Vector(1, 1), Vector.NULO, 50));
 
         final EspacioPanel espacioPanel = new EspacioPanel();
         add(espacioPanel);

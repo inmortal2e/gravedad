@@ -1,0 +1,2 @@
+
+Leer concurrencia para poder hacer la clase tiempo o usar timer
