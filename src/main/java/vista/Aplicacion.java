@@ -1,42 +1,28 @@
 package vista;
 
-import modelo.Objeto;
-import modelo.Tiempo;
-import modelo.Vector;
+import controlador.ObjetoControlador;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 /**
  * Created by victor on 10/18/15.
  */
 public class Aplicacion extends JFrame {
 
-    private Tiempo tiempo;
+    private static final int LARGO = 1000;
+    private static final int ALTO = 800;
+
+    private ObjetoControlador objetoControlador;
 
     public Aplicacion() {
-        initUI();
-    }
 
-    private void initUI() {
+        this.objetoControlador = new ObjetoControlador();
 
-        tiempo = new Tiempo(10);
-        tiempo.agregarObservador(new Objeto(new Vector(5, 5), new Vector(1, 1), Vector.NULO, 50));
-
-        final EspacioPanel espacioPanel = new EspacioPanel();
-        add(espacioPanel);
-
-        addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent e) {
-                tiempo.terminar();
-            }
-        });
+        add(objetoControlador.inicializarElEspacio(ALTO));
 
         setTitle("Gravedad");
-        setSize(700, 500);
+        setSize(LARGO, ALTO);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
