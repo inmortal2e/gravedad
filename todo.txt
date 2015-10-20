@@ -1,2 +1,3 @@
 
 Leer concurrencia para poder hacer la clase tiempo o usar timer
+Ver date library en java 8

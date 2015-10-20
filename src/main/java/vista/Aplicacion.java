@@ -1,6 +1,7 @@
 package vista;
 
 import modelo.Objeto;
+import modelo.Tiempo;
 import modelo.Vector;
 
 import javax.swing.*;
@@ -13,8 +14,7 @@ import java.awt.event.WindowEvent;
  */
 public class Aplicacion extends JFrame {
 
-    private static final int DELAY = 150;
-    private Timer timer;
+    private Tiempo tiempo;
 
     public Aplicacion() {
         initUI();
@@ -22,8 +22,8 @@ public class Aplicacion extends JFrame {
 
     private void initUI() {
 
-        timer = new Timer(DELAY, null);
-        timer.addActionListener(new Objeto(new Vector(5, 5), new Vector(1, 1), Vector.NULO, 50));
+        tiempo = new Tiempo(10);
+        tiempo.agregarObservador(new Objeto(new Vector(5, 5), new Vector(1, 1), Vector.NULO, 50));
 
         final EspacioPanel espacioPanel = new EspacioPanel();
         add(espacioPanel);
@@ -31,7 +31,7 @@ public class Aplicacion extends JFrame {
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                timer.stop();
+                tiempo.terminar();
             }
         });
 

@@ -1,12 +1,9 @@
 package modelo;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 /**
  * Created by victor on 10/18/15.
  */
-public class Objeto implements ActionListener {
+public class Objeto implements ObservadorDelPasoDelTiempo {
 
     private Vector posicion;
     private Vector velocidad;
@@ -22,13 +19,12 @@ public class Objeto implements ActionListener {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void pasaron(long milisegundos) {
 
-        // TODO aca necesitamos saber cuanto tiempo paso desde la última llamada del timer (por ahora suponemos 1 seg)
-        double tiempo = 1;
+        double segundos = milisegundos / 1000;
 
         // v = v0 + a * t*t
-        this.velocidad = this.velocidad.sumarCon(this.aceleracion.multiplicarPor(Math.pow(tiempo, 2)));
+        this.velocidad = this.velocidad.sumarCon(this.aceleracion.multiplicarPor(Math.pow(segundos, 2)));
         this.posicion = this.posicion.sumarCon(this.velocidad);
     }
 }
