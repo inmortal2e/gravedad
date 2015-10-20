@@ -1,6 +1,7 @@
 package vista;
 
 import modelo.Espacio;
+import modelo.Objeto;
 import modelo.ObservadorDelEspacio;
 
 import javax.swing.*;
@@ -35,7 +36,20 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        this.espacio.getObjetos().parallelStream().forEach((o) -> g.fillOval((int) Math.round(o.getPosicion().getX()), alto - (int) Math.round(o.getPosicion().getY()), DIAMETRO, DIAMETRO));
+//        this.espacio.getObjetos().parallelStream().forEach((o) -> g.fillOval(getX(o), getY(o), DIAMETRO, DIAMETRO));
+
+        for (Objeto objeto : this.espacio.getObjetos()) {
+            g.fillOval(getX(objeto), getY(objeto), DIAMETRO, DIAMETRO);
+        }
+
+    }
+
+    private int getX(Objeto objeto) {
+        return (int) Math.round(objeto.getPosicion().getX());
+    }
+
+    private int getY(Objeto objeto) {
+        return alto - (int) Math.round(objeto.getPosicion().getY());
     }
 
 }

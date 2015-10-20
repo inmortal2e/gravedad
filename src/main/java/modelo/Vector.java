@@ -32,11 +32,11 @@ public class Vector {
         return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
     }
 
-    public Vector sumarCon(Vector vector) {
+    public Vector mas(Vector vector) {
         return new Vector(this.getX() + vector.getX(), this.getY() + vector.getY());
     }
 
-    public Vector multiplicarPor(double escalar) {
+    public Vector por(double escalar) {
         return new Vector(escalar * this.getX(), escalar * this.getY());
     }
 

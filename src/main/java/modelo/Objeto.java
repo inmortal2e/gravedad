@@ -45,11 +45,13 @@ public class Objeto {
 
     public void actualizar(long milisegundosTranscurridos) {
 
-        double segundos = milisegundosTranscurridos / 1000;
+        double tiempo = ((double) milisegundosTranscurridos) / 1000;
 
-        // v = v0 + a * t*t
-        this.velocidad = this.velocidad.sumarCon(this.aceleracion.multiplicarPor(Math.pow(segundos, 2)));
-        this.posicion = this.posicion.sumarCon(this.velocidad.multiplicarPor(segundos));
+        // x = x0 + v0 * t + 0.5 * a * t*t
+        this.posicion = posicion.mas(velocidad.por(tiempo)).mas(this.aceleracion.por(0.5 * Math.pow(tiempo, 2)));
+
+        // v = v0 + a * t
+        this.velocidad = velocidad.mas(aceleracion.por(tiempo));
     }
 
     /*--------------------------------------------------------------------------------------*/

@@ -1,2 +1,3 @@
 
 Ver si conviene usar los objetos Observer y Observed
+Ver el tema del inicio de coordenadas
