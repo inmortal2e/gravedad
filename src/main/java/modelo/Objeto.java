@@ -11,12 +11,17 @@ public class Objeto implements ObservadorDelPasoDelTiempo {
     private double masa;
 
 
+    /*------------------------------------ Constructors ------------------------------------*/
+
     public Objeto(Vector posicion, Vector velocidad, Vector aceleracion, double masa) {
         this.posicion = posicion;
         this.velocidad = velocidad;
         this.aceleracion = aceleracion;
         this.masa = masa;
     }
+
+    /*--------------------------------------------------------------------------------------*/
+    /*----------------------------- ObservadorDelPasoDelTiempo -----------------------------*/
 
     @Override
     public void pasaron(long milisegundos) {
@@ -27,4 +32,7 @@ public class Objeto implements ObservadorDelPasoDelTiempo {
         this.velocidad = this.velocidad.sumarCon(this.aceleracion.multiplicarPor(Math.pow(segundos, 2)));
         this.posicion = this.posicion.sumarCon(this.velocidad);
     }
+
+    /*--------------------------------------------------------------------------------------*/
+
 }

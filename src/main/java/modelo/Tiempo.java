@@ -10,31 +10,49 @@ import java.util.TimerTask;
  */
 public class Tiempo extends TimerTask {
 
-    private Timer timer = new Timer();
     private long periodo;
-    private List<ObservadorDelPasoDelTiempo> observadores = new ArrayList<>();
+    private Timer timer;
+    private List<ObservadorDelPasoDelTiempo> observadores;
 
+
+    /*------------------------------------ Constructors ------------------------------------*/
 
     public Tiempo(long periodo) {
+
         this.periodo = periodo;
+        this.observadores = new ArrayList<>();
+
+        this.timer = new Timer();
         this.timer.scheduleAtFixedRate(this, 0, periodo);
     }
+
+    /*--------------------------------------------------------------------------------------*/
+    /*------------------------------------ Public methods ----------------------------------*/
 
     public void agregarObservador(ObservadorDelPasoDelTiempo observador) {
         this.observadores.add(observador);
     }
 
     public void terminar() {
+        // El fin de los tiempos
         this.timer.cancel();
     }
+
+    /*--------------------------------------------------------------------------------------*/
+    /*------------------------------------- TimerTask --------------------------------------*/
 
     @Override
     public void run() {
         this.notificarPasoDelTiempo();
     }
 
+    /*--------------------------------------------------------------------------------------*/
+    /*----------------------------------- Private methods ----------------------------------*/
+
     private void notificarPasoDelTiempo() {
         this.observadores.parallelStream().forEach((o) -> o.pasaron(this.periodo));
     }
+
+    /*--------------------------------------------------------------------------------------*/
 
 }
