@@ -2,9 +2,10 @@ package controlador;
 
 import modelo.Espacio;
 import modelo.Objeto;
-import modelo.Tiempo;
 import modelo.Vector;
 import vista.EspacioPanel;
+
+import javax.swing.*;
 
 /**
  * Created by vdelrio on 10/20/15.
@@ -17,12 +18,15 @@ public class ObjetoControlador {
     public EspacioPanel inicializarElEspacio(int alto) {
 
         Espacio espacio = new Espacio();
-//        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(1, 1), Vector.NULO, 50));
-        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(100, 100), new Vector(0, -40), 50));
-//        espacio.agregarObjeto(new Objeto(new Vector(170, 30), new Vector(2, 1), Vector.NULO, 50));
+        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(300, 200), Vector.NULO, 50));
+        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(1000, 1000), new Vector(0, -4000), 50));
+        espacio.agregarObjeto(new Objeto(new Vector(170, 30), new Vector(600, 150), Vector.NULO, 50));
 
-        Tiempo tiempo = new Tiempo(PERIODO);
-        tiempo.agregarObservador(espacio);
+        Timer timer = new Timer(5, espacio);
+        timer.start();
+
+//        Tiempo tiempo = new Tiempo(PERIODO);
+//        tiempo.agregarObservador(espacio);
 
         return new EspacioPanel(espacio, alto);
     }
