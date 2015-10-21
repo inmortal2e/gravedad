@@ -49,12 +49,7 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-//        this.espacio.getObjetos().parallelStream().forEach((o) -> g.fillOval(getX(o), getY(o), DIAMETRO, DIAMETRO));
-
-        for (Objeto objeto : this.espacio.getObjetos()) {
-            g.fillOval(getX(objeto), getY(objeto), DIAMETRO, DIAMETRO);
-        }
-
+        this.espacio.getObjetos().parallelStream().forEach((o) -> g.fillOval(getX(o), getY(o), DIAMETRO, DIAMETRO));
     }
 
     /*--------------------------------------------------------------------------------------*/
