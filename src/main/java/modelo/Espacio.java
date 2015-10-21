@@ -1,5 +1,6 @@
 package modelo;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -31,17 +32,6 @@ public class Espacio implements ActionListener {
         return objetos;
     }
 
-//    @Override
-//    public void pasaron(long milisegundos) {
-//
-//        // TODO: ver si conviene pasar a parallelStream
-//        for (Objeto objeto: this.objetos) {
-//            objeto.actualizar(milisegundos);
-//        }
-//
-//        this.notificarCambio();
-//    }
-
     private void notificarCambio() {
 
         for (ObservadorDelEspacio observador : this.observadores) {
@@ -52,8 +42,10 @@ public class Espacio implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
+        int periodo = ((Timer) e.getSource()).getDelay();
+
         for (Objeto objeto: this.objetos) {
-            objeto.actualizar(1);
+            objeto.actualizar(periodo);
         }
 
         this.notificarCambio();

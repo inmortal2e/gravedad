@@ -12,21 +12,18 @@ import javax.swing.*;
  */
 public class ObjetoControlador {
 
-    private static final long PERIODO = 1;
+    private static final int PERIODO = 5;
 
 
     public EspacioPanel inicializarElEspacio(int alto) {
 
         Espacio espacio = new Espacio();
 //        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(20, 20), Vector.NULO, 50));
-        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(15, 15), new Vector(0, -9.8), 50));
+        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(10, 10), new Vector(0, -9.8), 50));
 //        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(30, 25), Vector.NULO, 50));
 
-        Timer timer = new Timer(10, espacio);
+        Timer timer = new Timer(PERIODO, espacio);
         timer.start();
-
-//        Tiempo tiempo = new Tiempo(PERIODO);
-//        tiempo.agregarObservador(espacio);
 
         return new EspacioPanel(espacio, alto);
     }
