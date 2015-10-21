@@ -10,8 +10,8 @@ import java.awt.*;
  */
 public class Aplicacion extends JFrame {
 
-    private static final int LARGO = 1000;
-    private static final int ALTO = 800;
+    private static final int LARGO = 700;
+    private static final int ALTO = 500;
 
     private ObjetoControlador objetoControlador;
 
@@ -23,6 +23,7 @@ public class Aplicacion extends JFrame {
 
         setTitle("Gravedad");
         setSize(LARGO, ALTO);
+        setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }

@@ -1,3 +1,4 @@
 
 Ver si conviene usar los objetos Observer y Observed
 Ver el tema del inicio de coordenadas
+Ver si usando el timer de swing se ve mas fluida la animación
