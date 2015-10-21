@@ -17,6 +17,8 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     // TODO sacar esto de acá
     private static final int CORRECCION_LARGO = 10;
     private static final int CORRECCION_ALTO = 32;
+    private static final double ESCALA = 0.01;
+    private static final double PIXELS_A_METRO = 4481.8181818;
 
     private Espacio espacio;
     private int alto;
@@ -49,11 +51,11 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     }
 
     private int getX(Objeto objeto) {
-        return ((int) Math.round(objeto.getPosicion().getX())) - CORRECCION_LARGO;
+        return ((int) Math.round(objeto.getPosicion().getX() * PIXELS_A_METRO * ESCALA)) - CORRECCION_LARGO;
     }
 
     private int getY(Objeto objeto) {
-        return alto - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY());
+        return alto - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY() * PIXELS_A_METRO * ESCALA);
     }
 
 }

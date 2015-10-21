@@ -18,11 +18,11 @@ public class ObjetoControlador {
     public EspacioPanel inicializarElEspacio(int alto) {
 
         Espacio espacio = new Espacio();
-        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(300, 200), Vector.NULO, 50));
-        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(1000, 1000), new Vector(0, -4000), 50));
-        espacio.agregarObjeto(new Objeto(new Vector(170, 30), new Vector(600, 150), Vector.NULO, 50));
+//        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(20, 20), Vector.NULO, 50));
+        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(15, 15), new Vector(0, -9.8), 50));
+//        espacio.agregarObjeto(new Objeto(new Vector(0, 0), new Vector(30, 25), Vector.NULO, 50));
 
-        Timer timer = new Timer(5, espacio);
+        Timer timer = new Timer(10, espacio);
         timer.start();
 
 //        Tiempo tiempo = new Tiempo(PERIODO);
