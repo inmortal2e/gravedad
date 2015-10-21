@@ -14,6 +14,10 @@ import java.awt.*;
 public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
 
     private static final int DIAMETRO = 20;
+    // TODO sacar esto de acá
+    private static final int CORRECCION_LARGO = 10;
+    private static final int CORRECCION_ALTO = 32;
+
     private Espacio espacio;
     private int alto;
 
@@ -22,7 +26,7 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
 
         espacio.agregarObservador(this);
         this.espacio = espacio;
-        
+
         this.alto = alto;
     }
 
@@ -45,11 +49,11 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     }
 
     private int getX(Objeto objeto) {
-        return (int) Math.round(objeto.getPosicion().getX());
+        return ((int) Math.round(objeto.getPosicion().getX())) - CORRECCION_LARGO;
     }
 
     private int getY(Objeto objeto) {
-        return alto - (int) Math.round(objeto.getPosicion().getY());
+        return alto - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY());
     }
 
 }

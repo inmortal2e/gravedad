@@ -12,8 +12,7 @@ import vista.EspacioPanel;
 public class ObjetoControlador {
 
     private static final long PERIODO = 1;
-    // TODO sacar esto
-    private static final int CORRECCION_ALTURA = 42;
+
 
     public EspacioPanel inicializarElEspacio(int alto) {
 
@@ -25,7 +24,7 @@ public class ObjetoControlador {
         Tiempo tiempo = new Tiempo(PERIODO);
         tiempo.agregarObservador(espacio);
 
-        return new EspacioPanel(espacio, alto - CORRECCION_ALTURA);
+        return new EspacioPanel(espacio, alto);
     }
 
 }
