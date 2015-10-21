@@ -10,8 +10,8 @@ import java.awt.*;
  */
 public class Aplicacion extends JFrame {
 
-    private static final int LARGO = 700;
-    private static final int ALTO = 500;
+    private static final int VENTANA_LARGO = 700;
+    private static final int VENTANA_ALTO = 500;
 
     private ObjetoControlador objetoControlador;
 
@@ -19,10 +19,10 @@ public class Aplicacion extends JFrame {
 
         this.objetoControlador = new ObjetoControlador();
 
-        add(objetoControlador.inicializarElEspacio(ALTO));
+        add(objetoControlador.inicializarElEspacio(VENTANA_ALTO));
 
         setTitle("Gravedad");
-        setSize(LARGO, ALTO);
+        setSize(VENTANA_LARGO, VENTANA_ALTO);
         setResizable(false);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

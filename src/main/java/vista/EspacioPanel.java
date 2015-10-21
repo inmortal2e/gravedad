@@ -14,7 +14,6 @@ import java.awt.*;
 public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
 
     private static final int DIAMETRO = 20;
-    // TODO sacar esto de acá
     private static final int CORRECCION_LARGO = 10;
     private static final int CORRECCION_ALTO = 32;
     private static final double ESCALA = 0.01;
@@ -24,6 +23,8 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     private int alto;
 
 
+    /*------------------------------------ Constructors ------------------------------------*/
+
     public EspacioPanel(Espacio espacio, int alto) {
 
         espacio.agregarObservador(this);
@@ -32,12 +33,18 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
         this.alto = alto;
     }
 
+    /*--------------------------------------------------------------------------------------*/
+    /*------------------------------------ Public methods ----------------------------------*/
+
     @Override
     public void cambie(Espacio espacio) {
 
         this.espacio = espacio;
         repaint();
     }
+
+    /*--------------------------------------------------------------------------------------*/
+    /*---------------------------------- Protected methods ---------------------------------*/
 
     @Override
     protected void paintComponent(Graphics g) {
@@ -50,6 +57,9 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
 
     }
 
+    /*--------------------------------------------------------------------------------------*/
+    /*----------------------------------- Private methods ----------------------------------*/
+
     private int getX(Objeto objeto) {
         return ((int) Math.round(objeto.getPosicion().getX() * PIXELS_A_METRO * ESCALA)) - CORRECCION_LARGO;
     }
@@ -57,5 +67,7 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     private int getY(Objeto objeto) {
         return alto - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY() * PIXELS_A_METRO * ESCALA);
     }
+
+    /*--------------------------------------------------------------------------------------*/
 
 }

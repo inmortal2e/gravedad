@@ -15,29 +15,15 @@ public class Espacio implements ActionListener {
     private List<ObservadorDelEspacio> observadores;
 
 
+    /*------------------------------------ Constructors ------------------------------------*/
+
     public Espacio() {
         this.objetos = new ArrayList<>();
         this.observadores = new ArrayList<>();
     }
 
-    public void agregarObjeto(Objeto objeto) {
-        this.objetos.add(objeto);
-    }
-
-    public void agregarObservador(ObservadorDelEspacio observador) {
-        this.observadores.add(observador);
-    }
-
-    public List<Objeto> getObjetos() {
-        return objetos;
-    }
-
-    private void notificarCambio() {
-
-        for (ObservadorDelEspacio observador : this.observadores) {
-            observador.cambie(this);
-        }
-    }
+    /*--------------------------------------------------------------------------------------*/
+    /*------------------------------------ Public methods ----------------------------------*/
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -50,4 +36,32 @@ public class Espacio implements ActionListener {
 
         this.notificarCambio();
     }
+
+    public void agregarObjeto(Objeto objeto) {
+        this.objetos.add(objeto);
+    }
+
+    public void agregarObservador(ObservadorDelEspacio observador) {
+        this.observadores.add(observador);
+    }
+
+    /*--------------------------------------------------------------------------------------*/
+    /*---------------------------------- Geters and seters ---------------------------------*/
+
+    public List<Objeto> getObjetos() {
+        return objetos;
+    }
+
+    /*--------------------------------------------------------------------------------------*/
+    /*----------------------------------- Private methods ----------------------------------*/
+
+    private void notificarCambio() {
+
+        for (ObservadorDelEspacio observador : this.observadores) {
+            observador.cambie(this);
+        }
+    }
+
+    /*--------------------------------------------------------------------------------------*/
+
 }
