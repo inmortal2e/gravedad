@@ -11,8 +11,6 @@ import java.util.List;
  */
 public class Espacio implements ActionListener {
 
-    public static final double G = 6.67300E-11;
-
     private List<Objeto> objetos;
     private List<ObservadorDelEspacio> observadores;
 
@@ -34,7 +32,7 @@ public class Espacio implements ActionListener {
 
         for (Objeto objeto: this.objetos) {
 
-//            actualizarFuerzasGravitatorias(objeto);
+            actualizarFuerzasGravitatorias(objeto);
             objeto.actualizar(periodo);
         }
 
@@ -59,19 +57,14 @@ public class Espacio implements ActionListener {
     /*--------------------------------------------------------------------------------------*/
     /*----------------------------------- Private methods ----------------------------------*/
 
-    private void actualizarFuerzasGravitatorias(Objeto objeto2) {
+    private void actualizarFuerzasGravitatorias(Objeto objeto1) {
 
-        objeto2.getFuerzasGravitatorias().clear();
+        objeto1.getFuerzasGravitatorias().clear();
 
-        for (Objeto objeto1 : this.objetos) {
+        for (Objeto objeto2 : this.objetos) {
 
-            if (!objeto2.equals(objeto1)) {
-
-                // Ley de gravitación universal (forma vectorial)
-                // TODO pasar a una clase que contenga formulas
-
-                double cte = (-1) * G * objeto1.getMasa() * objeto2.getMasa() / Math.pow(objeto2.getPosicion().menos(objeto1.getPosicion()).modulo(), 3);
-                objeto2.getFuerzasGravitatorias().add(objeto2.getPosicion().menos(objeto1.getPosicion()).por(cte));
+            if (!objeto1.equals(objeto2)) {
+                objeto1.getFuerzasGravitatorias().add(Formulas.gravitacionUniversal(objeto2, objeto1));
             }
         }
     }

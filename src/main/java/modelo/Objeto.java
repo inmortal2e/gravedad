@@ -65,11 +65,8 @@ public class Objeto {
 
         double tiempo = ((double) milisegundosTranscurridos) / 1000;
 
-        // x = x0 + v0 * t + 0.5 * a * t*t
-        this.posicion = posicion.mas(velocidad.por(tiempo)).mas(getAceleracion().por(0.5 * Math.pow(tiempo, 2)));
-
-        // v = v0 + a * t
-        this.velocidad = velocidad.mas(getAceleracion().por(tiempo));
+        this.posicion = Formulas.cinematicaEspacio(posicion, velocidad, tiempo, getAceleracion());
+        this.velocidad = Formulas.cinematicaVelocidad(velocidad, getAceleracion(), tiempo);
     }
 
     /*--------------------------------------------------------------------------------------*/

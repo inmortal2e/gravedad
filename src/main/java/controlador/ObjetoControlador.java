@@ -18,9 +18,11 @@ public class ObjetoControlador {
     public EspacioPanel inicializarElEspacio(int alto) {
 
         Espacio espacio = new Espacio();
-        espacio.agregarObjeto(new Objeto(5.976e+11, new Vector(6, 4.5), new Vector(5, 0)));
-        espacio.agregarObjeto(new Objeto(5.976e+11, new Vector(7, 5), Vector.NULO));
-        espacio.agregarObjeto(new Objeto(5.976e+11, new Vector(8, 5.5), new Vector(-0.5, 0)));
+//        espacio.agregarObjeto(new Objeto(5.976e+11, new Vector(6, 4.5), new Vector(5, 0)));
+//        espacio.agregarObjeto(new Objeto(5.976e+11, new Vector(7, 5), Vector.NULO));
+//        espacio.agregarObjeto(new Objeto(5.976e+11, new Vector(8, 5.5), new Vector(-0.5, 0)));
+        espacio.agregarObjeto(new Objeto(5.976e+12, new Vector(7, 5), Vector.NULO));
+        espacio.agregarObjeto(new Objeto(5.976e+11, new Vector(6, 10), new Vector(-4, 0)));
 
         Timer timer = new Timer(PERIODO, espacio);
         timer.start();
