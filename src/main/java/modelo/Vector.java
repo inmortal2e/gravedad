@@ -36,8 +36,20 @@ public class Vector {
         return new Vector(this.getX() + vector.getX(), this.getY() + vector.getY());
     }
 
+    public Vector menos(Vector vector) {
+        return new Vector(this.getX() - vector.getX(), this.getY() - vector.getY());
+    }
+
     public Vector por(double escalar) {
         return new Vector(escalar * this.getX(), escalar * this.getY());
+    }
+
+    public Vector dividido(double escalar) {
+        return new Vector(this.getX() / escalar, this.getY() / escalar);
+    }
+
+    public double distancia(Vector vector) {
+        return this.menos(vector).modulo();
     }
 
     /*--------------------------------------------------------------------------------------*/

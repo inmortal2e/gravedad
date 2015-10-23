@@ -1,28 +1,35 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by victor on 10/18/15.
  */
 public class Objeto {
 
+    private double masa;
     private Vector posicion;
     private Vector velocidad;
-    private Vector aceleracion;
-    private double masa;
+    private List<Vector> fuerzasGravitatorias;
 
 
     /*------------------------------------ Constructors ------------------------------------*/
 
-    public Objeto(Vector posicion, Vector velocidad, Vector aceleracion, double masa) {
+    public Objeto(double masa, Vector posicion, Vector velocidad) {
 
+        this.masa = masa;
         this.posicion = posicion;
         this.velocidad = velocidad;
-        this.aceleracion = aceleracion;
-        this.masa = masa;
+        this.fuerzasGravitatorias = new ArrayList<>();
     }
 
     /*--------------------------------------------------------------------------------------*/
     /*---------------------------------- Geters and seters ---------------------------------*/
+
+    public double getMasa() {
+        return masa;
+    }
 
     public Vector getPosicion() {
         return posicion;
@@ -32,12 +39,23 @@ public class Objeto {
         return velocidad;
     }
 
-    public Vector getAceleracion() {
-        return aceleracion;
+    public List<Vector> getFuerzasGravitatorias() {
+        return fuerzasGravitatorias;
     }
 
-    public double getMasa() {
-        return masa;
+    public Vector getFuerzaGravitatoriaResultante() {
+
+        Vector fuerzaResultante = Vector.NULO;
+
+        for (Vector fuerza : this.fuerzasGravitatorias) {
+            fuerzaResultante = fuerzaResultante.mas(fuerza);
+        }
+
+        return fuerzaResultante;
+    }
+
+    public Vector getAceleracion() {
+        return getFuerzaGravitatoriaResultante().dividido(this.masa);
     }
 
     /*--------------------------------------------------------------------------------------*/
@@ -48,10 +66,10 @@ public class Objeto {
         double tiempo = ((double) milisegundosTranscurridos) / 1000;
 
         // x = x0 + v0 * t + 0.5 * a * t*t
-        this.posicion = posicion.mas(velocidad.por(tiempo)).mas(this.aceleracion.por(0.5 * Math.pow(tiempo, 2)));
+        this.posicion = posicion.mas(velocidad.por(tiempo)).mas(getAceleracion().por(0.5 * Math.pow(tiempo, 2)));
 
         // v = v0 + a * t
-        this.velocidad = velocidad.mas(aceleracion.por(tiempo));
+        this.velocidad = velocidad.mas(getAceleracion().por(tiempo));
     }
 
     /*--------------------------------------------------------------------------------------*/
