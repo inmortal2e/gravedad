@@ -10,8 +10,8 @@ import java.awt.*;
  */
 public class Aplicacion extends JFrame {
 
-    private static final int VENTANA_LARGO = 700;
-    private static final int VENTANA_ALTO = 500;
+    public static final int VENTANA_LARGO = 1200;
+    public static final int VENTANA_ALTO = 800;
 
     private ObjetoControlador objetoControlador;
 

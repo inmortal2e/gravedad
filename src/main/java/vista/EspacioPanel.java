@@ -16,7 +16,7 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     private static final int DIAMETRO = 20;
     private static final int CORRECCION_LARGO = 10;
     private static final int CORRECCION_ALTO = 32;
-    private static final double ESCALA = 0.01;
+    private static final double ESCALA = 0.005;
     private static final double PIXELS_A_METRO = 4481.8181818;
 
     private Espacio espacio;
