@@ -19,8 +19,11 @@ public class Aplicacion extends JFrame {
 
         this.objetoControlador = new ObjetoControlador();
 
-        add(objetoControlador.inicializarElEspacio(VENTANA_ALTO));
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.add(objetoControlador.inicializarElEspacio(VENTANA_ALTO), BorderLayout.PAGE_START);
+        panel.add(new AddObjectPanel(), BorderLayout.PAGE_END);
 
+        getContentPane().add(panel);
         setTitle("Gravedad");
         setSize(VENTANA_LARGO, VENTANA_ALTO);
         setResizable(false);
