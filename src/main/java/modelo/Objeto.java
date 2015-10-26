@@ -63,8 +63,7 @@ public class Objeto {
 
     public void actualizar(long milisegundosTranscurridos) {
 
-//        double tiempo = ((double) milisegundosTranscurridos) / 1000;
-        double tiempo = 0;
+        double tiempo = ((double) milisegundosTranscurridos) / 1000;
 
         this.posicion = Formulas.cinematicaEspacio(posicion, velocidad, tiempo, getAceleracion());
         this.velocidad = Formulas.cinematicaVelocidad(velocidad, getAceleracion(), tiempo);

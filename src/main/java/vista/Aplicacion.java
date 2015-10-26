@@ -1,6 +1,6 @@
 package vista;
 
-import controlador.ObjetoControlador;
+import modelo.Espacio;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,24 +10,25 @@ import java.awt.*;
  */
 public class Aplicacion extends JFrame {
 
-    public static final int VENTANA_LARGO = 1200;
-    public static final int VENTANA_ALTO = 800;
-
-    private ObjetoControlador objetoControlador;
+    private static final int PERIODO = 5;
 
     public Aplicacion() {
 
-        this.objetoControlador = new ObjetoControlador();
+        Espacio espacio = new Espacio();
+        Timer timer = new Timer(PERIODO, espacio);
+        timer.start();
 
         JPanel panel = new JPanel(new BorderLayout());
-        panel.add(objetoControlador.inicializarElEspacio(VENTANA_ALTO), BorderLayout.PAGE_START);
-        panel.add(new AddObjectPanel(), BorderLayout.PAGE_END);
+        panel.add(new EspacioPanel(espacio), BorderLayout.CENTER);
+        panel.add(new AddObjectPanel(espacio), BorderLayout.PAGE_END);
 
         getContentPane().add(panel);
         setTitle("Gravedad");
-        setSize(VENTANA_LARGO, VENTANA_ALTO);
-        setResizable(false);
         setLocationRelativeTo(null);
+        setResizable(false);
+
+        pack();
+        setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 

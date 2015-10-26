@@ -13,24 +13,27 @@ import java.awt.*;
  */
 public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
 
+    public static final int PANEL_LARGO = 800;
+    public static final int PANEL_ALTO = 600;
+
     private static final int DIAMETRO = 20;
     private static final int CORRECCION_LARGO = 10;
     private static final int CORRECCION_ALTO = 32;
     private static final double ESCALA = 0.005;
-    private static final double PIXELS_A_METRO = 4481.8181818;
+    private static final double PIXELS_A_METRO_RETINA = 4481.8181818;
 
     private Espacio espacio;
-    private int alto;
 
 
     /*------------------------------------ Constructors ------------------------------------*/
 
-    public EspacioPanel(Espacio espacio, int alto) {
+    public EspacioPanel(Espacio espacio) {
 
         espacio.agregarObservador(this);
         this.espacio = espacio;
 
-        this.alto = alto;
+        this.setPreferredSize(new Dimension(PANEL_LARGO, PANEL_ALTO));
+        this.setBackground(Color.WHITE);
     }
 
     /*--------------------------------------------------------------------------------------*/
@@ -56,11 +59,11 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     /*----------------------------------- Private methods ----------------------------------*/
 
     private int getX(Objeto objeto) {
-        return ((int) Math.round(objeto.getPosicion().getX() * PIXELS_A_METRO * ESCALA)) - CORRECCION_LARGO;
+        return ((int) Math.round(objeto.getPosicion().getX() * PIXELS_A_METRO_RETINA * ESCALA)) - CORRECCION_LARGO;
     }
 
     private int getY(Objeto objeto) {
-        return alto - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY() * PIXELS_A_METRO * ESCALA);
+        return PANEL_ALTO - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY() * PIXELS_A_METRO_RETINA * ESCALA);
     }
 
     /*--------------------------------------------------------------------------------------*/
