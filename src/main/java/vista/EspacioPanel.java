@@ -60,12 +60,12 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
 
     private int getX(Objeto objeto) {
         Configuracion conf = Configuracion.getInstancia();
-        return ((int) Math.round(objeto.getPosicion().getX() * conf.getPantalla().getPixelsAMetros() * conf.getEscala())) - CORRECCION_LARGO;
+        return ((int) Math.round(objeto.getPosicion().getX() * conf.getPantalla().getPixelsPorMetro() * conf.getEscala())) - CORRECCION_LARGO;
     }
 
     private int getY(Objeto objeto) {
         Configuracion conf = Configuracion.getInstancia();
-        return conf.getPantalla().getAltoPanel() - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY() * conf.getPantalla().getPixelsAMetros() * conf.getEscala());
+        return conf.getPantalla().getAltoPanel() - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY() * conf.getPantalla().getPixelsPorMetro() * conf.getEscala());
     }
 
     /*--------------------------------------------------------------------------------------*/

@@ -5,21 +5,20 @@ package config;
  */
 public enum Pantalla {
 
-    // TODO setear bien el alto y largo del panel y el pixels a metros de NORMAL
-    NORMAL(800, 600, 5, 4481.8181818),
-    RETINA(800, 600, 25, 4481.8181818);
+    NORMAL(1100, 700, 5, 5032),
+    RETINA(800, 600, 25, 4481.82);
 
     private final int largoPanel;
     private final int altoPanel;
     private final int periodo;
-    private final double pixelsAMetros;
+    private final double pixelsPorMetro;
 
 
-    Pantalla(int largoPanel, int altoPanel, int periodo, double pixelsAMetros) {
+    Pantalla(int largoPanel, int altoPanel, int periodo, double pixelsPorMetro) {
         this.largoPanel = largoPanel;
         this.altoPanel = altoPanel;
         this.periodo = periodo;
-        this.pixelsAMetros = pixelsAMetros;
+        this.pixelsPorMetro = pixelsPorMetro;
     }
 
     public int getLargoPanel() {
@@ -34,7 +33,7 @@ public enum Pantalla {
         return periodo;
     }
 
-    public double getPixelsAMetros() {
-        return pixelsAMetros;
+    public double getPixelsPorMetro() {
+        return pixelsPorMetro;
     }
 }
