@@ -1,5 +1,6 @@
 package vista;
 
+import config.Configuracion;
 import modelo.Espacio;
 import modelo.Objeto;
 import modelo.ObservadorDelEspacio;
@@ -13,14 +14,11 @@ import java.awt.*;
  */
 public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
 
-    public static final int PANEL_LARGO = 800;
-    public static final int PANEL_ALTO = 600;
-
     private static final int DIAMETRO = 20;
+
+    // TODO revisar el tema de las correcciones
     private static final int CORRECCION_LARGO = 10;
     private static final int CORRECCION_ALTO = 32;
-    private static final double ESCALA = 0.005;
-    private static final double PIXELS_A_METRO_RETINA = 4481.8181818;
 
     private Espacio espacio;
 
@@ -32,7 +30,9 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
         espacio.agregarObservador(this);
         this.espacio = espacio;
 
-        this.setPreferredSize(new Dimension(PANEL_LARGO, PANEL_ALTO));
+        Configuracion conf = Configuracion.getInstancia();
+
+        this.setPreferredSize(new Dimension(conf.getPantalla().getLargoPanel(), conf.getPantalla().getAltoPanel()));
         this.setBackground(Color.WHITE);
     }
 
@@ -59,11 +59,13 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
     /*----------------------------------- Private methods ----------------------------------*/
 
     private int getX(Objeto objeto) {
-        return ((int) Math.round(objeto.getPosicion().getX() * PIXELS_A_METRO_RETINA * ESCALA)) - CORRECCION_LARGO;
+        Configuracion conf = Configuracion.getInstancia();
+        return ((int) Math.round(objeto.getPosicion().getX() * conf.getPantalla().getPixelsAMetros() * conf.getEscala())) - CORRECCION_LARGO;
     }
 
     private int getY(Objeto objeto) {
-        return PANEL_ALTO - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY() * PIXELS_A_METRO_RETINA * ESCALA);
+        Configuracion conf = Configuracion.getInstancia();
+        return conf.getPantalla().getAltoPanel() - CORRECCION_ALTO - (int) Math.round(objeto.getPosicion().getY() * conf.getPantalla().getPixelsAMetros() * conf.getEscala());
     }
 
     /*--------------------------------------------------------------------------------------*/

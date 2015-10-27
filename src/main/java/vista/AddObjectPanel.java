@@ -28,9 +28,9 @@ public class AddObjectPanel extends JPanel implements ActionListener {
         this.espacio = espacio;
         
         JLabel labelPosicionX = new JLabel("Posición [X]");
-        this.posicionX = new JTextField(5);
+        this.posicionX = new JTextField("15", 5);
         JLabel labelPosicionY = new JLabel("Posición [Y]");
-        this.posicionY = new JTextField(5);
+        this.posicionY = new JTextField("15", 5);
 
         this.add(labelPosicionX);
         this.add(posicionX);
@@ -38,9 +38,9 @@ public class AddObjectPanel extends JPanel implements ActionListener {
         this.add(posicionY);
 
         JLabel labelVelocidadX = new JLabel("Velocidad [X]");
-        this.velocidadX = new JTextField(5);
+        this.velocidadX = new JTextField("1", 5);
         JLabel labelVelocidadY = new JLabel("Velocidad [Y]");
-        this.velocidadY = new JTextField(5);
+        this.velocidadY = new JTextField("1", 5);
 
         this.add(labelVelocidadX);
         this.add(velocidadX);

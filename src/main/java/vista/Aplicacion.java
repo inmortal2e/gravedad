@@ -1,5 +1,6 @@
 package vista;
 
+import config.Configuracion;
 import modelo.Espacio;
 
 import javax.swing.*;
@@ -10,12 +11,11 @@ import java.awt.*;
  */
 public class Aplicacion extends JFrame {
 
-    private static final int PERIODO = 5;
 
     public Aplicacion() {
 
         Espacio espacio = new Espacio();
-        Timer timer = new Timer(PERIODO, espacio);
+        Timer timer = new Timer(Configuracion.getInstancia().getPantalla().getPeriodo(), espacio);
         timer.start();
 
         JPanel panel = new JPanel(new BorderLayout());
