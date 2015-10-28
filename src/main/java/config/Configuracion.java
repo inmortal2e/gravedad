@@ -8,12 +8,14 @@ public class Configuracion {
     private static Configuracion instancia = new Configuracion();
 
     private Pantalla pantalla;
+    private int periodo;
     private double escala;
 
     private Configuracion() {
 
-        this.pantalla = Pantalla.RETINA;
-        this.escala = 0.005;
+        this.pantalla = Pantalla.NORMAL;
+        this.periodo = 25;
+        this.escala = 0.01;
     }
 
     public static Configuracion getInstancia() {
@@ -26,6 +28,14 @@ public class Configuracion {
 
     public void setPantalla(Pantalla pantalla) {
         this.pantalla = pantalla;
+    }
+
+    public int getPeriodo() {
+        return periodo;
+    }
+
+    public void setPeriodo(int periodo) {
+        this.periodo = periodo;
     }
 
     public double getEscala() {

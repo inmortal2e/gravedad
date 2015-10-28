@@ -18,7 +18,7 @@ public class EspacioPanel extends JPanel implements ObservadorDelEspacio {
 
     // TODO revisar el tema de las correcciones
     private static final int CORRECCION_LARGO = 10;
-    private static final int CORRECCION_ALTO = 32;
+    private static final int CORRECCION_ALTO = 11;
 
     private Espacio espacio;
 

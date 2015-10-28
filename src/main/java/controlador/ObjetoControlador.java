@@ -12,7 +12,7 @@ public class ObjetoControlador {
 
     public void agregarObjeto(Espacio espacio, String posicionX, String posicionY, String velocidadX, String velocidadY) {
         // TODO validaciones
-        espacio.agregarObjeto(new Objeto(9.976e+11, new Vector(Double.valueOf(posicionX), Double.valueOf(posicionY)), new Vector(Double.valueOf(velocidadX), Double.valueOf(velocidadY))));
+        espacio.agregarObjeto(new Objeto(1, new Vector(Double.valueOf(posicionX), Double.valueOf(posicionY)), new Vector(Double.valueOf(velocidadX), Double.valueOf(velocidadY))));
     }
 
 }

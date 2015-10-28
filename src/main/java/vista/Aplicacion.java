@@ -15,7 +15,7 @@ public class Aplicacion extends JFrame {
     public Aplicacion() {
 
         Espacio espacio = new Espacio();
-        Timer timer = new Timer(Configuracion.getInstancia().getPantalla().getPeriodo(), espacio);
+        Timer timer = new Timer(Configuracion.getInstancia().getPeriodo(), espacio);
         timer.start();
 
         JPanel panel = new JPanel(new BorderLayout());
